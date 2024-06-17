@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin: 0;
+    border-box: none;
+}
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 4rem;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    line-height: 1.5;
+}
+header {
+    background-color: #fff;
+    color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    box-shadow: 0px 1px 8px #333;
+    z-index: 1;
+}
+section {
+    margin:3rem;
+}
+label {
+    display: block;
+}
+input {
+    padding: 0.5rem;
+    border: none;
+    border-bottom: #000 solid 1px;
+}
+input:focus {
+    border-bottom: none;
+}
+.personal-info-div {
+    display: flex;
+    gap: 2rem;
+}
+.email-div, .personal-info-div > div {
+    display: flex;
+    gap: 0.25rem;
+    flex-direction: column;
+    margin: 1rem 0rem;
+    margin: 2rem 0rem;
+}
+.email-div input{
+    flex: 1;
+}
+textarea {
+    height: 6rem;
+    padding: 0.5rem;
+}
+footer {
+    font-size: 18px;
+    padding: 1rem;
+    background-color: #333;
+    color: #f4f4f4;
+    width: 100%;
+    text-align: center;
+}
