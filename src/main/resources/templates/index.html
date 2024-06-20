@@ -1,13 +1,74 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+        <title>Iocode Student Form</title>
     </head>
     <body>
-        <section class="sc"></section>
+        <header>
+            <h1>Iocode</h1>
+            <p>Student Form</p>
+        </header>
+        <section>
+            <form th:object="${dto}" th:action="@{/students/get}" th:method="post">
+                <p>Fill the form below to present details of a student</p>
+                <div>
+                    <label for="email">Email of Student</label>
+                    <input type="email" id="email" th:field="*{email}" required placeholder="Terrancej@gmail.com"/>
+                    <button>Send</button>
+                </div>
+            </form>
+            <p>Or Add a new student</p>
+            <form th:object="${newStudent}" th:action="@{/students/add}" th:method="post" enctype="multipart/form-data">
+                <p>Fill the form below to present details of a student</p>
+                <div class="personal-info-div">
+                    <div>
+                        <input type="text" id="firstname" th:field="*{firstname}" required placeholder="Terrance"/>
+                        <label for="firstname">Firstname</label>
+                    </div>
+                    <div>
+                        <input type="text" id="lastname" th:field="*{lastname}" required placeholder="Julius"/>
+                        <label for="lastname">Lastname</label>
+                    </div>
+                    <div>
+                        <input type="text" id="middle-name" th:field="*{middleName}" placeholder="Optional *"/>
+                        <label for="middle-name">Middle Name</label>
+                    </div>
+                </div>
+                <div class="email-div">
+                    <input type="email" id="student-email" th:field="*{email}" required placeholder="Terrancej@gmail.com"/>
+                    <label for="student-email">Email</label>
+                </div>
+                <div class="email-div">
+                    <textarea id="about" th:field="*{about}"></textarea>
+                    <label for="about">About Student</label>
+                </div>
+                <div class="email-div">
+                    <textarea id="speech" th:field="*{speech}"></textarea>
+                    <label for="speech">Speech</label>
+                </div>
+                <div class="email-div">
+                    <input id="tel" type="number" th:field="*{contact}">
+                    <label for="tel">Contact Info</label>
+                </div>
+                <div>
+                    <div>
+                        <label for="image">Choose Photo</label>
+                        <input th:field="*{multipartFile}" type="file" id="image" accept="image/*" />
+                    </div>
+                    <div>
+                        <input id="age" type="number" th:field="*{age}">
+                        <label for="age">Age</label>
+                    </div>
+
+                </div>
+                <button>Send</button>
+            </form>
+        </section>
+        <footer>&copy; iocode 2024</footer>
     </body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+  </head>
+  <body>
+    <section th:fragment="profile-frag" th:object="${student}" th:if="${student != null}" id="student-profile">
+      <div class="header-section">
+        <div>
+          <h2>Meet the Student</h2>
+          <p th:text="${student.firstname}">Jerry</p>
+        </div>
+        <div class="image-div">
+          <img alt="student-pic" th:src="${student.imageUrl}" />
+           </div>
+      </div>
+      <article>
+        <h2>About Me</h2>
+        <p th:text="${student.about}">
+          My name is Ms. Wilson and I have been a speech-language pathologist for
+          10 years. I'm passionate about helping your child succeed in school, and I've
+          learned that laughter and smiles are the best tools in the speech room. I
+          look forward to working with your child.
+        </p>
+      </article>
+      <article>
+        <h2>Opening Remarks</h2>
+        <p th:text="${student.speech}">
+          I create a warm, welcoming, and inclusive environment where each and
+          every student feels special and valued. During therapy sessions, your child
+          will have fun while improving their speech and language skills.
+        </p>
+      </article>
+      <div class="bottom-section">
+        <article>
+          <h2>Contact</h2>
+          <p>
+            Please reach out to me if you
+            have any questions about your
+            child. Here are all the ways you
+            can contact me:
+          </p>
+          <div>
+            <ul>
+              <li th:text="${student.email}">My Email</li>
+              <li th:text="${student.contact}">My Tel</li>
+            </ul>
+          </div>
+        </article>
+        <article>
+          <h2>My Favorites</h2>
+          <div>
+            <ul>
+              <li th:each="hobby: ${student.hobbies}" th:text="${hobby}"></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>

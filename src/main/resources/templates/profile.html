@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Student Profile</title>
+        <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+        <link rel="stylesheet" href="../static/css/profile.css" th:href="@{/css/profile.css}">
+        <style>
+        </style>
+    </head>
+    <body th:object="${student}">
+        <header>
+            <h1>Iocode Channel</h1>
+            <p>Student Form</p>
+        </header>
+        <main>
+            <div th:object="${student}" th:if="${student != null}" th:insert="~{profile-template :: profile-frag}">
+            </div>
+        </main>
+        <footer>&copy; Iocode 2024</footer>
+    </body>
+</html>
